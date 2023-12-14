@@ -1,0 +1,81 @@
+1. Cấu hình Global Username/Email:
+
+git config --global user.name "(Tên username muốn đặt)"
+
+git config --global user.email "(Email muốn liên kết đến)"
+
+*** Muốn kiểm tra lại Global Username/Email dùng lệnh:
+
+git config --list
+
+2. Tạo Local Repository trên máy thì đến địa chỉ muốn tạo, rồi dùng lệnh:
+
+git init
+
+*** Sau khi tạo Local Repository để liên kết nó tới Repository đã tạo trên Github thì dùng lệnh:
+
+git remote add origin (link của Remote Repository)
+
+3. Để kéo 1 Repository xuống máy thì dùng lệnh: 
+
+git clone (link của Remote Repository muốn kéo về)
+
+4. Để lưu những thay đổi trước khi Commit dùng lệnh:
+
+Git add (Tên File muốn add vào, nếu muốn add toàn bộ File thì dùng dấu chấm (.) để tượng trưng cho toàn bộ File)
+
+5. Sau khi lưu những thay đổi, để Commit đẩy lên Remote Repository thì dùng lệnh:
+
+git commit -m "(Nội dung mô tả các file đẩy lên, -m chính là viết tắt của message)"
+
+*** Nếu muốn thay đổi nội dung mô tả dùng lệnh:
+
+git commit --amend -m "(Nội dung mô tả muốn thay đổi)"
+
+6. Đẩy toàn bộ Commit trong Local Repository lên Remote Repository dùng lệnh: 
+
+git push origin (tên nhánh)
+
+7. Để kiểm tra trạng thái tại thư mục đang làm việc hoặc khu vực lưu những thay đổi trước khi Commit:
+
+git status
+
+8. Để kiểm tra thay đổi giữa 2 Commit dùng lệnh:
+
+git diff (index của Commit thứ 1) (index của Commit thứ 2)
+
+9. Để list ra các Commit đã thực hiện trên nhánh hiện tại dùng lệnh:
+
+git log --oneline
+
+10. Để Remove File ra khỏi khu vực lưu những thay đổi trước khi Commit dùng lệnh:
+
+git reset (Tên File muốn Remove ra khỏi khu vực lưu những thay đổi trước khi Commit)
+
+*** Ngoài ra git reset còn có thêm một vài công dụng khác
+
+11. Để đồng bộ hóa những thay đổi của Remote Repository xuống Local Repository để cập nhật các version mới nhất trong Project dùng lệnh:
+
+*** Đầu tiên sẽ tìm để tìm những thay đổi mới nhất dùng lệnh:
+
+git fetch
+
+*** Sau khi tìm được những thay đổi mới nhất, để kéo những thay đổi mới này xuống Local Repository dùng lệnh:
+
+git pull
+
+-------------------------------------------------------------- Push 1 Project lên Github -----------------------------------------------------------------
+
+B1: Đăng nhập vào Github.com tạo Repository.
+
+B2: Copy địa chỉ http của Repository vừa tạo.
+
+B3: Vào nơi muốn Clone Repository về, sau đó click chuột phải và chọn "Open Git Bash Here".
+
+B4: Dùng câu lệnh: Git clone (Địa chỉ http của Repository).
+
+B5: Chuyển Project muốn úp vào nơi vừa Clone Repository về và dùng câu lệnh: Git add .  (Dấu chấm có nghĩa là thêm tất cả các File.)
+
+B6: Dùng câu lệnh: Git commit -m "(Message muốn đăng kèm)" (-m viết tắt của Message, tin nhắn đi kèm các file mà Push lên Github).
+
+B7: Cuối cùng để Push các file lên Repository của Github, dùng câu lệnh: Git push origin main.

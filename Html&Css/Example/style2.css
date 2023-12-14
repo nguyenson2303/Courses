@@ -1,0 +1,71 @@
+/* 
+* Thuộc tính Padding: nằm bên trong border và có thể làm thay đổi kích thước element.
+
+*** Cú pháp short-hand: sẽ ko viết riêng lẻ như padding-top, padding-bottom, padding-left, padding-right mà chỉ viết padding rồi truyền giá trị vào.
+
+* 1. Nếu chỉ có 1 giá trị truyền vào thì sẽ áp dụng cho cả 4 hướng trên, dưới, trái, phải.
+
+* 2. Nếu có 2 giá trị truyền vào thì sẽ áp dụng cho 2 hướng trên-dưới, trái-phải.
+
+* 3. Nếu có 3 giá trị truyền vào thì sẽ áp dụng cho 3 hướng trên, trái-phải, dưới.
+
+* 4. Nếu có 4 giá trị truyền vào thì sẽ áp dụng cho 4 hướng theo chiều kim đồng hồ trên, phải, dưới, trái.
+
+* Thuộc tính Border: là đường viền ngoài cùng bọc lấy element (border thường rất mỏng và ko có màu nên có thể sẽ khó thấy nên cần css nếu muốn dễ thấy).
+
+* border-width: Dùng để chỉnh độ dày-mỏng của border.
+
+* border-style: Dùng để chỉnh kiểu cho border (kiểu nét đứt, nét liền,...).
+
+* border-color: Dùng để chình màu cho border.
+
+*** Cú pháp short-hand: sẽ ko viết riêng lẻ như border-top, border-bottom, border-left, border-right mà chỉ viết border rồi truyền giá trị vào. Border sẽ có thể nhận vào 3 giá trị để thể hiện độ dày-mỏng của border, kiểu border và màu border (VD: border: 39px solid #333 => border dày 39px, kiểu nét liền và có màu đen (#333)).
+
+* Thuộc tính Margin: là khoảng cách xung quanh các elements, bên ngoài bất kỳ border đã xác định nào. Margin ko thay đổi kích thước gốc của elements.
+
+*** Cú pháp short-hand: sẽ ko viết riêng lẻ như margin-top, margin-bottom, margin-left, margin-right mà chỉ viết margin rồi truyền giá trị vào.
+
+* 1. Nếu chỉ có 1 giá trị truyền vào thì sẽ áp dụng cho cả 4 hướng trên, dưới, trái, phải.
+
+* 2. Nếu có 2 giá trị truyền vào thì sẽ áp dụng cho 2 hướng trên-dưới, trái-phải.
+
+* 3. Nếu có 3 giá trị truyền vào thì sẽ áp dụng cho 3 hướng trên, trái-phải, dưới.
+
+* 4. Nếu có 4 giá trị truyền vào thì sẽ áp dụng cho 4 hướng theo chiều kim đồng hồ trên, phải, dưới, trái.
+
+* Thuộc tính Box-sizing: Khi tăng padding và border kích thước gốc của element sẽ bị thay đổi theo. Để khắc phục vấn đề này ta dùng box-sizing. Thuộc tính box-sizing xác định cách tính chiều rộng và chiều cao của một element. Trong đó sẽ bao gồm luôn cả padding, border và content của elements.Tuy nhiên, nếu cố tình tăng padding, border hoặc content lên quá lớn thì kích thước của element vẫn bị thay đổi (VD: box-sizing: border-box (bao gồm cả content, padding, border), content-box (chỉ bao gồm content chứ ko bao gồm padding, border )|unset (bỏ box-sizing trước đó và trả về giá trị ban đầu của Browser)) .
+
+* Thuộc tính background-color: Dùng để đặt màu nền.
+
+* Thuộc tính background-image: linear-gradient(180deg, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5)), url(imange.png): Dùng để đặt hình nền cho element. link (url) hình nền nào trước thì sẽ nằm ở trên, còn link hình nền nào sau thì sẽ bị nằm đè ở dưới. Ngoài hình nền trực tiếp đưa từ ngoài vào có thể dùng Linear-gradient để đặt một dải màu chuyển làm hình nền. Xác định ít nhất hai màu, linear-gradient nhận vào 3 tham số, tham số đầu tiên là hướng xoay của dải màu chuyển (trên xuống dưới, trái sang phải hoặc đặt vào dấu trừ (-) số âm để ngược lại), tham số thứ 2 là màu để bắt đầu chuyển, tham số thứ 3 là màu kết thúc của dải màu chuyển. Có thể kết hợp linear-gradient với hình ảnh trực tiếp đưa vào. rgba nhận vào 4 tham số theo thứ tự viết tắt của red, green, blue và alpha (muốn tạo ra độ trong suốt thì giảm alpha xuống).
+
+* Thuộc tính background-size: Dùng để chỉ định kích thước của hình nền (1 tham số truyền vào là chiều ngang, 2 tham số truyền vào là chiều ngang và chiều dọc) hoặc có thể dùng các giá trị khác như contain, contain sẽ thay đổi kích thước hình nền để đảm bảo hình nền hiển thị đầy đủ (chiều dọc và ngang, sẽ lấy chiều dài hơn) và ảnh sẽ ko bị che khuất hoặc cắt xén. Cover thì cũng giống contain nhưng khác là cover chấp nhận ko hiển thị đầy đủ hình nền, hình nền có thể bị che khuất hoặc cắt xén để ko bị khoảng trắng.
+
+* Thuộc tính background-repeat: Sẽ lặp đi lặp lại hình ảnh. Có thể lặp lại theo hướng khác nhau tùy vào tùy chỉnh.
+
+* Thuộc tính background-clip: border-box| padding-box| content-box: Dùng để xác định khoảng cách nền (màu hoặc hình ảnh) sẽ mở rộng trong 1 element, border-box là giá trị mặc định. Nền sẽ kéo dài đến phía sau border, padding-box thì nền sẽ kéo dài đến mép trong của border, content-box thì nền sẽ kéo dài đến cạnh của content box (Content box là cách tính khi mà chúng ta bỏ qua padding, margin, border).
+
+* Thuộc tính background-origin: tương tự như background-clip nhưng chỉ dùng cho image (ảnh).
+
+* Thuộc tính background-position: Dùng để đặt vị trí ban đầu cho ảnh nền. có thể set vào các keyword như top, right, bottom, left (có thể kết hợp các keyword với nhau), nếu chỉ có 1 keyword nó sẽ hiểu keyword thứ 2 là center. Cũng có thể set vào là số (10px, 50%,...) và cũng có thể kết hợp các keyword cùng với số tỷ lệ (top 20% right -10px).
+
+*** Cú pháp Shorthand của background: 
+* background: #333 (Nếu là màu thì set thẳng màu vào).
+* background: url(image.png) (Nếu là Url thì set thẳng Url vào) center (canh giữa của thuộc tính background-position) / contain (contain là thuộc tính của background-size (trước giá trị set vào của background-size phải có dấu /)) no-repeat (no-repeat của thuộc tính background-repeat)).
+*/
+
+.Box {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+  margin-bottom: 40px;
+}
+
+#box1 {
+  background-color: blue;
+  margin-bottom: 40px;
+}
+
+#box3 {
+  background-color: yellow;
+}

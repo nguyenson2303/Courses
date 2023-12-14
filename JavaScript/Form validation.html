@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation</title>
+  </head>
+  <body>
+    <form action="" method="POST" class="form" id="form-1">
+      <h3 class="heading">Register User</h3>
+      <p class="description">Form validation Demo</p>
+
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname" class="form-label">Full Name</label>
+        <div>
+          <div>
+            <input
+              id="fullname"
+              name="fullname"
+              type="text"
+              placeholder="Example: Nguyen Son"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="text"
+          placeholder="Example: nguyenson@gmail.com"
+          class="form-control"
+        />
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Insert Password"
+          class="form-control"
+        />
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="password_confirmation" class="form-label"
+          >Password-Confirmation</label
+        >
+        <input
+          id="password_confirmation"
+          name="password_confirmation"
+          type="password"
+          placeholder="Insert Password Again"
+          class="form-control"
+        />
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="gender" class="form-label">Gender</label>
+        <div>
+          <input
+            name="gender"
+            type="radio"
+            value="male"
+            class="form-control"
+          />Male
+        </div>
+        <div>
+          <input
+            name="gender"
+            type="radio"
+            value="female"
+            class="form-control"
+          />Female
+        </div>
+
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="province" class="form-label">Thành Phố</label>
+        <select id="province" name="province" class="form-control">
+          <option value="">--Chọn Thành Phố--</option>
+          <option value="HCM">Hồ Chí Minh</option>
+          <option value="HN">Hà Nội</option>
+          <option value="ĐN">Đà Nẵng</option>
+        </select>
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="language" class="form-label">Language</label>
+        <div>
+          <input
+            name="language"
+            type="checkbox"
+            value="JavaScript"
+            class="form-control"
+          />JavaScript
+        </div>
+        <div>
+          <input
+            name="language"
+            type="checkbox"
+            value="C#"
+            class="form-control"
+          />C#
+        </div>
+        <div>
+          <input
+            name="language"
+            type="checkbox"
+            value="Pyton"
+            class="form-control"
+          />Pyton
+        </div>
+
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="avatar" class="form-label">Avatar</label>
+        <input id="avatar" name="avatar" type="file" class="form-control" />
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <button class="form-submit">Đăng ký</button>
+    </form>
+
+    <script src="Form validation.js"></script>
+
+    <script>
+      // Mong muốn của chúng ta.
+      Validator({
+        form: "#form-1",
+        formGroupSelector: ".form-group",
+        errorSelector: ".form-message",
+        rules: [
+          Validator.isRequired("#fullname", "Vui lòng nhập tên đầy đủ"),
+          Validator.isRequired("#email"),
+          Validator.isEmail("#email", "Nội dung nhập phải là Email"),
+          Validator.isRequired("#password"),
+          Validator.minLength(
+            "#password",
+            6,
+            "Vui lòng nhập Password ít nhất 6 ký tự"
+          ),
+          Validator.isRequired("#password_confirmation"),
+          Validator.isConfirmed(
+            "#password_confirmation",
+            function () {
+              return document.querySelector("#form-1 #password").value;
+            },
+            "Password nhập lại ko chính xác"
+          ),
+          Validator.isRequired("input[name='gender']"),
+          Validator.isRequired("#province"),
+          //Validator.isRequired("input[name='language']"),
+          Validator.isRequired("#avatar"),
+        ],
+        onSubmit: function (data) {
+          console.log(data);
+        },
+      });
+    </script>
+  </body>
+</html>

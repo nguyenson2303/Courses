@@ -1,0 +1,10 @@
+/*
+*** CSS Position:
+* Relative (Vị trí tương đối): là vị trí ko bị phụ thuộc vào đối tượng nào khác cả và sẽ lấy vị trí của chính mình để làm gốc tọa độ. Có thể dùng các thuộc tính top right bottom left để di chuyển vị trí cho các đối tượng có Positon, nếu ko có Position thì các thuộc tính top right bottom left sẽ ko có tác dụng. 
+
+* Absolute (Vị trí tuyệt đối): Sẽ bị phụ thuộc vào thẻ cha gần nhất có thuộc tính Position (ko cần phân biệt giá trị của Positon là gì, chỉ cần có Positon) để lấy thẻ cha đó làm gốc tọa độ.
+
+* Fixed (Vị trí phụ thuộc vào khung trình duyệt): Vị trí sẽ được cố định so với trình duyệt.
+
+* Sticky (Vị trí bám dính vào khung của trình duyệt): Giống Fixed nhưng sẽ ko bị đè lên các Element khác và khi Scroll xuống vị trí sẽ bị giữ lại trên cùng nên nếu kéo xuống quá dài có thể sẽ ko còn thấy Element có thuộc tính sticky này nữa.
+*/

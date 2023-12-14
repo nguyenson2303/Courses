@@ -1,0 +1,213 @@
+/*
+* Html: Hypertext Markup Language, giúp tạo và cấu trúc thành phần trong trang Web hoặc App.
+
+* Css: Cascading Style Sheet, giúp tạo Style và định kiểu cho những yếu tố được viết dưới dạng ngôn nhữ đánh dấu như Html.
+
+* Cách Comments trong Visual Studio Code: ấn Ctrl + /
+*/
+
+/* Thẻ HTML thông dụng: 
+1) h1 - h6: thẻ Heading (thẻ tiêu đề từ h1 đến h6 sẽ như nhau chỉ khác kích thước). 
+Example: <h1> My Heading </h1>. 
+
+2) p: thẻ Paragraph (đoạn văn), có thể gõ Lorem(số ký tự) để tạo text mẫu. 
+Example: <p> My Paragraph </p>.
+
+3) img: thẻ Image (hình ảnh), src: dẫn nguồn của file ảnh, alt: tên hiển thị khi file ảnh bị lỗi ko hiển thị.
+Example: <img src="https://sneakerhead.com/jordan1LF.png" alt="Giày Jordan 1 Lost&Found"> 
+
+4) a: thẻ AnchorL (đặt liên kết URL), href: địa chỉ muốn điều hướng tới).
+Example: <a href="www.google.com"> Google </a> 
+
+5) ul hoặc ol (số), li: thẻ Unordered List, List Item (dùng trong danh sách), tạo nhanh các cặp thẻ li bằng cách ấn li*n (n là số cặp thẻ li muốn tạo).
+Example: 
+<ul>
+    <li> Jordan 3 </li>
+    <li> Jordan 4 </li>
+</ul>
+
+6) table: thẻ Table (tạo ra bảng), thead, tbody, tfoot dùng để chia bồ cục trong Table, tr (Table Row) dòng (hàng ngang) của Table, td tạo ra 1 ô trong Table, th (Table Heading) giống td nhưng là tiêu đề nên được in đậm hơn và được canh giữa.
+
+<table>
+    <thead>
+    <tr>
+    <th></th>
+    </tr>
+    <tr>
+    <td></td>
+    </tr>
+    </thead>
+</table>
+
+7) input: thẻ Input (để nhập dữ liệu từ bàn phím), type mặc định của thẻ input sẽ là text (có thể đổi thành checkbox, radio, email,...).
+Example: <input type="text">
+
+8) button: thẻ Button (tạo nút bấm để xử lý).
+Example: <button>Login</button>
+
+9) div: thẻ Div (tạo container để chứa các phần tử của Html).  
+*/
+
+/* 
+* Attribute (thuộc tính) của các thẻ html. mỗi thẻ html có thể có nhiều thuộc tính.  
+
+* Css Selector: 
+1) ID (#): Là duy nhất, chỉ có một, ko bao giờ được có ID trùng nhau. Mỗi ID chỉ dùng cho 1 phần tử.
+
+2) Class (.): Có thể sử dụng class cho nhiều phần tử khác nhau. Mỗi Class có thể dùng cho nhiều phần tử.
+
+* Một số kiểu Selector:
+1) .class.class (viết liền nhau): (VD: .name1.name2) Chọn tất cả các thẻ có cả name1 và name2 được đặt trong class của nó.
+
+2) .class1 .class2 (viết cách nhau): (VD: .name1 .name2) Chọn tất cả các thẻ có class là name2 và phải là con của thẻ name1.
+
+3) element1 element2 (viết cách nhau): (VD: div p) Chọn tất cả các thẻ p và phải là con của thẻ div.
+
+4) *: Sẽ chọn tất cả, áp dụng lên tất cả các thẻ trong trang.
+
+5) element.class: (div.box) Chọn tất cả các thẻ div có class là box.
+
+6) element, element hoặc .class, .class: (VD: div, h2 hoặc .my-class1, .my-class2) Chọn các thẻ hoặc các class.
+
+7) element > element: (VD: div > p) Chọn tất cả các thẻ p là con trực tiếp của thẻ div. 
+
+8) element + element: (VD: div + p) Chọn thẻ p đứng "liền kề" sau (cùng cấp) của thẻ div.
+
+9) element ~ element: (VD: div ~ p) Chọn tất cả thẻ p đứng sau (ko cần liền kề) thẻ div.
+
+* Thứ tự ưu tiên trong Css (xếp theo điểm)
+1) Internal, External: Ngang nhau, được gọi sau (xếp ở dưới) có nghĩa là mới hơn nên sẽ được chọn.
+
+2) Inline - 1000 điểm.
+
+3) ID - 100 điểm.
+
+4) Class - 10 điểm.
+
+5) Tag (thẻ) - 1 điểm.
+
+6) Equal specificity: Nếu trùng Selector thì cái nào đứng sau (mới nhất) sẽ được chọn. (VD: #id.class (vừa id vừa class) => 100 điểm + 10 điểm = 110 điểm > id)
+
+7) Universal selector and inherited - Nếu xét điểm thì sẽ là 0 điểm: Khi Selector 1 thẻ thì thẻ đó và toàn bộ thẻ con của nó đều sẽ được chọn.  
+
+8) !important - Nếu xét điểm thì sẽ hơn cả 1000 điểm: Ưu tiên trên hết. Nếu cả 2 Selector đều là !important thì lại quay về xét điểm 2 Selector đó để xem ai hơn điểm thì sẽ được chọn.
+*/
+
+/* 
+Tạo biến Global thì dùng lớp giả :root {} và khi dùng biến thì gọi css hàm là var(tên_biến)
+*/
+
+/* 
+Các đơn vị trong CSS:
+
+1. Absolute Units (tuyệt đối): đối tượng sở hữu giá trị tuyệt đối thì kích thước sẽ được cố định và ko bị thay đổi, kể cả khi bị các yếu tố khác xung quanh tác động thì vẫn ko đổi.
+* px
+* pt
+* cm
+* mm
+* inch
+* pc
+
+2. Relative Units (tương đối): đối tượng sở hữu giá trị tương đối luôn cần 1 giá trị để phụ thuộc vào (phụ thuộc vào thẻ chứa nó) và đối tượng này sở hữu kích thước ko cố định, nó sẽ bị thay đổi kích thước khi đối tượng mà nó phụ thuộc bị thây đổi.
+* %
+* rem (rem sẽ phụ thuộc vào thẻ html).
+* em (em sẽ phụ thuộc vào thẻ cha gần nhất và có thuộc tính mà đối tượng đang dùng em để set).
+* vw (viewport width) 1vw = 1% chiều ngang trình duyệt.
+* vh (viewport height) 1vwh = 1% chiều dọc trình duyệt.
+* vmin
+* vmax
+* ex
+* ch
+ */
+
+/* 
+ CSS functions (hàm trong Css):
+ * var()
+ * linear-gradient()
+ * rgba()
+ * rgb()
+ * calc()
+ * attr()
+ */
+
+/* 
+ *** CSS Pseudo Classes (lớp giả trong Css): Có thể hiểu là trạng thái được gắn vào element.
+ * :link => Css cho các liên kết chưa được click.
+
+ * :visited => Css cho các liên kết đã được click.
+
+ * :hover => Css cho element đang được di con trỏ chuột đến nhưng ko nhất thiết phải click chuột.
+
+ * :active => Css cho element đang được click chuột. Thường áp dụng trên thẻ <a> và <button>.
+
+ * :checked => Css cho element có trạng thái đang checked (checked = "checked"). Áp dụng cho các kiểu của thẻ <input>.
+
+ * :disabled => Css cho element bị vô hiệu hóa (có thuộc tính disabled = "disabled"). Thường áp dụng cho thẻ <input>.
+
+ * :enabled => Css cho element mà có thể tương tác được (click vào được, nhập vào được, ...). Trạng thái mặc định của element là enabled.
+
+ * :empty => Css cho element mà không có element con (con có thể là thẻ <button> hoặc là text (văn bản) của element đó).
+
+ * :first-child => Css cho element và phải là con đầu tiên của element cha (ko phân biệt với các thẻ khác).
+
+ * :first-of-type => Css cho element là con đầu tiên trong loại của nó (có phân biệt với các thẻ khác).
+
+ * :last-child => Css cho element và phải là con cuối cùng của element cha (ko phân biệt với các thẻ khác).
+
+ * :last-of-type => Css cho element là con cuối cùng trong loại của nó (có phân biệt với các thẻ khác).
+
+ * :focus => Css cho element đã nhận được con trỏ chuột, thường được kích hoạt khi click chuột vào element. 
+
+ * :in-range => Css cho element có giá trị hiện tại nằm trong giới hạn phạm vi được chỉ định. Chỉ dùng cho các input có thuộc tính max, min.
+
+* :invalid => Css cho element có input ko thể xác thực. Chỉ áp dụng cho các element có các thuộc tính như max, min, required, Email, v.v..
+
+* :lang() => Css cho element có thuộc tính lang khớp với chỉ định.
+
+* :not() => Css cho element không khớp với chỉ định.
+
+* :nth-child(n) => Css cho element con có vị trí khớp với chỉ định. (vị trí (n) có thể là even/odd (chẵn/lẻ)).
+
+* :nth-last-child(n) => Css cho element con có vị trí khớp với chỉ định (tính từ cuối trở lên).
+
+* :nth-last-of-type(n) => Css cho element con có vị trí khớp với chỉ định trong loại của nó (tính từ cuối trở lên và có phân biệt với các thẻ khác).
+
+* :nth-of-type(n) => Css cho element con có vị trí khớp với chỉ định trong loại của nó.
+
+* :only-of-type => Css cho một element ko có element ngang cấp (anh chị em) cùng loại.
+
+* :only-child => Css cho một element ko có element ngang cấp (anh chị em) ko nhất thiết phải cùng loại.
+
+* :optional => Css cho element <input>, <select>, <textarea> ko có thuộc tính required.
+
+* :out-of-range => Css cho một element có giá trị hiện tại nằm ngoài giới hạn chỉ định. Chỉ dùng cho các input có thuộc tính max, min.
+
+* :read-only => Css cho element như <input>, <textarea> mà ko thể chỉnh sửa được (bị gán cứng giá trị).
+
+* :read-write = Css cho element như <input>, <textarea> mà có thể chỉnh sửa được (ko bị gán cứng giá trị).
+
+* :required => Css cho element kiểu nhập data (<input>, <textarea>) có thuộc tính required.
+
+* :root => Đại diện cho 1 trang html.
+
+* :target => Css cho element là mục tiêu của href (có dấu # theo sau là một tên liên kết đến một thành phần trong trang html).
+
+* :valid => Css cho element nhập data mà có validate chính xác (ko có lỗi validate, dữ liệu nhập vào là đúng).
+ 
+ *** CSS Pseudo Elements (element giả trong Css): Có thể hiểu là một element được gắn thêm vào.
+ * ::before => Tạo 1 element giả là element con đầu tiên của element được chọn, phải luôn có thuộc tính content trong element giả ::before (content có thể để là 1 chuỗi rỗng), ::before ko có sẵn thuộc tính display: block như các thẻ khác.
+
+ * ::after => Tạo 1 element giả là element con cuối cùng của element được chọn, phải luôn có thuộc tính content trong element giả ::after (content có thể để là 1 chuỗi rỗng), ::after ko có sẵn thuộc tính display: block như các thẻ khác.
+
+ * ::first-letter => Css cho chữ cái đầu tiên thuộc dòng đầu tiên của thẻ <p>.
+
+ * ::first-line => Css cho dòng đầu tiên của thẻ <p>.
+
+ * ::marker => Css cho các đánh dấu (marker) trong các element thuộc dạng list-item (thẻ <li>).
+
+ * ::selection => Css cho content được đánh dấu của element được chọn (click giữ và kéo chuột qua 1 văn bản).
+
+ * ::file-selector-button => Css cho nút của thẻ <input> (input có thuộc tính type = "file" sẽ có nút).
+ 
+ * ::placeholder => Css cho thuộc tính placeholder trong Html.
+ */

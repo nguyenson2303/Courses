@@ -1,0 +1,144 @@
+/*
+*** Các cách căn giữa trong CSS:
+* text-align: Căn giữa theo chiều ngang.
+* line-height: normal| 1.6| 80%| 20px => Căn giữa theo chiều dọc (Truyền vào một kiểu giá trị mong muốn).
+* display: flex (Dùng ở thẻ cha) <=> margin: auto (ở thẻ con) thì sẽ tự động canh giữa dọc và ngang.
+* alight-item: Căn giữa theo chiều dọc (Phải dùng kèm theo display: flex).
+* justify-content: Căn giữa theo chiều ngang (Phải dùng kèm theo display: flex).
+* transform: translateX(-50%) translateY(50%) => Khi dùng top, bottom, left, right bằng 50% để căn giữa sẽ bị đẩy quá vì vậy dùng translateX cho trục ngang và translateY cho trục dọc, tùy theo top hay bottom hoặc left hay right mà giá trị truyền vào translateX và translateY sẽ là 50% hoặc -50%, canh giữa dọc và ngang nó thể gọp lại thành shorthand là transform: translate (-50%, -50%).
+* transition: tenhieuung(transform, opacity,...), kieuhieuung(linear,...), thoigianchuyendoihieuung. vd: transition: transform linear 0.2s => thay đổi giá trị thuộc tính một cách trơn mượt hơn trong một khoảng thời gian nhất định.
+
+*** Phân tích những thành phần thường gặp trên giao diện website:
+* Header (Đầu trang).
+* Navigation (Điều hướng| Navbar).
+* Breadcrumb (Là 1 tập hợp những liên kết giúp xác định vị trí hiện tại trong cấu trúc Website để bik đang ở trang nào, mục nào).
+* Sidebar (Giống với Navbar nhưng nằm dọc bên trái hoặc phải Website).
+* Slider (Có thể chứa hình ảnh, video, chữ, nội dung,...và sẽ có hiệu ứng trượt).
+* Banner (Những hình ảnh quảng cáo).
+* Content (Nội dung chính trong trang Web).
+* Footer (Cuối trang).
+
+*** Các thuộc tính CSS hay dùng trong WebSite.
+* Font-family (Font chữ).
+* Font-size (Kích thước font chữ).
+* Font-weight (Độ dày của font chữ, giao động từ 100 - 700).
+* Font-style (Chỉnh kiểu chữ in nghiêng,...)
+* List-style-type (Bỏ đi ký tự đầu dòng của list Item).
+* Display (Cách hiển thị của Elements).
+* Flex-direction (Có thể dùng kèm với display: flex).
+* Text-transform (thay đổi chữ viết thường, viết hoa).
+* Text-decoration (Bỏ gạch chân của thẻ a).
+* Box-shadow (tạo đổ bóng).
+* Cursor (Con trỏ chuột sẽ thay đổi khi di vào chữ).
+* Float (Chỉ định 1 phần tử có nổi sang trái hay phải hay ko).
+* Z-index (Độ nổi của các Element, số cao hơn sẽ nổi trên số thấp hơn).
+* Outline (Đường viền bên ngoài, tính chất và cách dùng giống border nhưng khác là của thẻ input chỉ hiện ra khi click vào)
+* Scroll-behavior (Hành vi khi cuộn trang).
+* <link rel="icon" type="image/png" href="./assets/images/icon.jpg" /> (Thay đường dẫn icon mong muốn để thay đổi icon website trên browser).
+* overflow: hidden (Dùng cho thẻ lớn nhất (thẻ cha) những thẻ nào là con thẻ này mà tràn ra ngoài thẻ này đều sẽ bị ẩn đi).
+
+*** Responsive:
+* Media Query: Dùng để áp dụng tùy chỉnh Responsive cho nhiều kích thước màn hình. Cú pháp:
+@media NOT|ONLY mediatype AND (mediafeature AND|OR|NOT mediafeature) {
+    CSS-CODE;
+}
+
+** Keywords:
+* Not: Ngoại trừ nó ra.
+* Only: Chỉ duy nhất mình nó.
+* And: Và.
+* Or: Hoặc.
+
+** Mediatypes:
+* Print: Chế độ in.
+* Screen: Màn hình (gồm tất cả thiết bị có màn hình, vd: PC, Laptop, Máy tính bảng, Điện thoại, TV, ..).
+* Speech: Màn hình có voice dành cho người khuyết tật.
+* All (Default): Nếu ko chỉ định giá trị cho mediatype thì giá trị sẽ mặc định là all (bao gồm cả print, screen, speech).
+
+** Mediafeature:
+* Là những value để giúp lựa chọn ra những trường hợp cụ thể để CSS.
+* Min-width
+* Max-width
+* ...
+* Tip dễ hiểu min-width và max-width. VD: max-width: 1024 => nhỏ hơn hoặc bằng 1024 thì apply, min-width: 80 => lớn hơn hoặc bằng 80 thì apply.
+
+** Polyfill: thuộc tính giúp cho các trình duyệt cũ có thể sử dụng được media query.
+
+** Các kích thước phổ biến của Responsive:
+* Mobile: width < 740px.
+* Tablet: width >= 740px and width < 1024px.
+* PC/Laptop: width >= 1024px.
+=> Khi sử dụng media query nên dùng em, và em trong media query ko phụ thuộc vào bất cứ thứ gì mà sẽ cố định 1em = 16px.
+
+** Grid System: Gồm 3 thành phần chính (Lý thuyết).
+
+* Column: Cột => Sừ dụng đơn vị tương đối là % chứ ko gán cứng bằng px để linh động và dễ dàng tương thích với độ rộng khác nhau của các thiết bị. Số lượng cột trong Grid System được xác định trước (VD: PC: 12 hoặc 16 cột, Tablet: 8 cột, Mobile: 4 cột).
+
+* Gutter: Đường ngăn cách (rãnh ngăn) = Là khoảng cách 2 phía (trái-phải) của 1 cột, tạo nên khoảng cách giữa các cột, độ rộng của Gutter có thể thay đổi cho phù hợp với kích thước màn hình (VD: PC/Tablet: 24px, Mobile: 16px).
+
+* Margin: Phần lề => Là khoảng cách 2 bên trái-phải của bố cục chính trên Website. Độ rộng của Margin có thể thay đổi cho phù hợp kích thước màn hình (VD: Margin lớn thích hợp cho màn hình lớn như PC, Margin nhỏ thích hợp cho màn hình nhỏ như Tablet và Mobile).
+
+** Các thành phần chính của Grid System khi làm việc với CSS:
+* Grid: Lưới (thường là phần cha chứa Row và Column).
+* Row: Dòng (dòng, chiều ngang, chứa Column).
+* Column: Cột (chứ nội dung, thành phần trên Website).
+
+** Ứng dụng Grid System để tạo thư viện CSS.
+1. Tạo Grid:
+* Grid: Full-width, chiếm hết chiều ngang đối tượng chứa (cha).
+* Wide: Chiều ngang tối đa là 1200px.
+
+=> Tạo file CSS thiết lập class .grid:
+
+.grid {
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+=> Tạo thêm 1 class nữa là wide:
+.grid.wide {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+=> Kết hợp với @media để thiết lập cho nhiều kích thước màn hình.
+
+2. Tạo Row:
+* Row: Chứa các Column và giúp các Column nằm ngang. Khi tổng chiều ngang Column vượt quá kích thước Row thì sẽ cho Column xuống hàng, đồng thời loại bỏ khoảng thừa do gutter tạo ra ở 2 phía.
+
+=> Tạo file CSS thiết lập class .row:
+
+.row {
+    display: flex; // Item sẽ chuyển sang nằm ngang.
+    flex-wrap: wrap; // Item sẽ xuống dòng khi tổng chiều ngang của Items vượt quá kích thước Row.
+    margin-left: -4px;
+    margin-right: -4px;
+    // padding của Column là bao nhiêu thì margin-left và margin-right âm bấy nhiêu (phải là số âm). Mobile thường là -4px, Tablet thường là -8px, PC thường là -12px.
+}
+
+3. Tạo Column:
+* Column: Chứa các thành phần trên Website.
+
+=> Tạo file CSS thiết lập class .col và Prefix Class luôn đi kèm với .col:
+* c (Column) <=> Mobile.
+* m (Medium) <=> Tablet.
+* l (Large) <=> PC.
+
+.col {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.c-0 {
+    display: none // class này dùng để ẩn đi Column.
+}
+
+** Các tỷ lệ Column khác nhau:c-n (n là số cột cơ sở bị chiếm).
+.c-1 {
+// Cú pháp shorthand của flex là Flex: flex-grow, flex-shrink, flex-basis.
+flex: 0 0 8.33333%;
+max-width:8.33333%;
+}
+
+*/

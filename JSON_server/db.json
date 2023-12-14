@@ -1,0 +1,24 @@
+{
+  "courses": [
+    {
+      "name": "JavaScript",
+      "description": "JavaScript For Newbie",
+      "id": 1
+    },
+    {
+      "name": "C#",
+      "description": "C# For Newbie",
+      "id": 2
+    },
+    {
+      "name": "React",
+      "description": "React For Newbie",
+      "id": 3
+    },
+    {
+      "name": "Pyton",
+      "description": "Pyton For Newbie",
+      "id": 4
+    }
+  ]
+}

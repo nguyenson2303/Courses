@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation 2</title>
+  </head>
+  <body>
+    <form action="" method="POST" class="form" id="form-2">
+      <h3 class="heading">Register User</h3>
+      <p class="description">Form validation 2</p>
+
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="fullname" class="form-label">Full Name</label>
+        <input
+          id="fullname"
+          name="fullname"
+          rules="required"
+          type="text"
+          placeholder="Example: Nguyen Son"
+          class="form-control"
+        />
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input
+          id="email"
+          name="email"
+          rules="required|email"
+          type="text"
+          placeholder="Example: nguyenson@gmail.com"
+          class="form-control"
+        />
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input
+          id="password"
+          name="password"
+          rules="required|min:6"
+          type="password"
+          placeholder="Insert Password"
+          class="form-control"
+        />
+        <span class="form-message"></span>
+      </div>
+      <br />
+      <button class="form-submit">Đăng ký</button>
+    </form>
+    <script src="Form validation 2.js"></script>
+
+    <script>
+      new Validator("#form-2");
+    </script>
+  </body>
+</html>
